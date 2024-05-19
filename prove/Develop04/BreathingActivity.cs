@@ -16,7 +16,7 @@ public class BreathingActivity : Activity
         DisplayEndingMessage(_name, _duration, 8);
     }
 
- public void TakeBreath(int runTime)
+    private void TakeBreath(int runTime)
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(runTime);

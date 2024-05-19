@@ -29,19 +29,19 @@ public class ReflectingActivity : Activity
         DisplayEndingMessage(_name, _duration, 8);
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         int i = _randGen.Next(1,_prompts.Count());
         return _prompts[i];
     }
 
-    public string GetRandomQuestion()
+    private string GetRandomQuestion()
     {
         int i = _randGen.Next(1,_questions.Count());
         return _questions[i];
     }
 
-    public void DisplayPrompt()
+    private void DisplayPrompt()
     {
         Console.WriteLine("\nConsider the following prompt:\n");
         Console.WriteLine($"--- {GetRandomPrompt()} ---\n");
@@ -49,7 +49,7 @@ public class ReflectingActivity : Activity
         PressEnterToContinue();
     }
 
-    public void DisplayQuestions()
+    private void DisplayQuestions()
     {
         Console.WriteLine("> Now ponder on each of the following questions as they related to this experience:");
         Console.Write("You may begin in: ");

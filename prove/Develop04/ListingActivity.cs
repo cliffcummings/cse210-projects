@@ -23,13 +23,13 @@ public class ListingActivity : Activity
         DisplayEndingMessage(_name, _duration, 8);
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         int i = randGen.Next(1,_prompts.Count());
         return _prompts[i];
     }
 
-    public void DisplayPrompt()
+    private void DisplayPrompt()
     {
         Console.WriteLine("\nList as many reponses as you can to the following prompt:");
         Console.WriteLine($"--- {GetRandomPrompt()} ---");
@@ -67,7 +67,6 @@ public class ListingActivity : Activity
             _prompts.Add("Who are some of your personal heroes?");
             loadComplete = 1;
         }
-
     }
 
     // Called for debugging purposes only
@@ -79,9 +78,3 @@ public class ListingActivity : Activity
         }
     }
 }
-
-// There are behaviors for each activity that are completely unique to that activity.
-// For example, the ListActivity also needs to provide behaviors for:
-
-//     Get a random prompt
-//     Get a list of responses from the user

@@ -5,11 +5,6 @@ public class Activity
     protected int _duration;
     protected int _runTime = 3;
 
-    public Activity ()
-    {
-        // _duration = duration;
-    }
-
     public void DisplayStartingMessage(string name, string description)
     {
         Console.Clear();
@@ -86,17 +81,3 @@ public class Activity
         string pause = Console.ReadLine();
     }
 }
-
-// For example, each of the following are common behaviors that should be in the base class:
-
-//     Displaying the starting message
-//     Displaying the ending message
-//     Pausing while showing a spinner for a certain number of seconds
-//     Pausing while showing a countdown timer for a certain number of seconds
-
-// The following behaviors might be similar in name, but different in the way they
-// behave, so they would need to be defined separately for each derived class:
-// (As a side note, in the next unit you will learn an even more clever way to
-// handle methods like this.)
-
-//     Run the activity
