@@ -12,6 +12,15 @@ public class GoalManager
     private int _cnt;
     private int _bonusValue;
 
+    // Exceeding Requirements
+    private int _ninjaGoal1 = 1000;
+    private int _ninjaGoal2 = 2000;
+    private int _ninjaGoal3 = 3000;
+    private int _ninjaGoal4 = 4000;
+    private int _ninjaLevel = 0;
+    private int _remaining = 0; // Ninja Goal points remaining
+
+
     // Declare goal handles
     private SimpleGoal _simple;
     private EternalGoal _eternal;
@@ -57,7 +66,7 @@ public class GoalManager
                     RecordEvent();
                     break;
                 case "6":
-                    Console.WriteLine("QUITING ***\n");
+                    // Console.WriteLine("QUITING ***\n");
                     break;
             }
         }
@@ -65,7 +74,63 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        Console.WriteLine($"\nYou have {_score} points\n");
+        Console.WriteLine($"\n*** You have {_score} points ***");
+        if (_score < _ninjaGoal1)
+        {
+            _remaining = _ninjaGoal1 - _score;
+            NinjaMessage(_remaining, 0);
+        }
+        else if (_score < _ninjaGoal2)
+        {
+            _remaining = _ninjaGoal2 - _score;
+            NinjaMessage(_remaining, 1);
+        }
+        else if (_score < _ninjaGoal3)
+        {
+            _remaining = _ninjaGoal3 - _score;
+            NinjaMessage(_remaining, 2);
+        }
+        else if (_score < _ninjaGoal4)
+        {
+            _remaining = _ninjaGoal4 - _score;
+            NinjaMessage(_remaining, 3);
+        }
+        else
+        {
+            NinjaMessage(0, 4);
+            Console.WriteLine();
+        }
+    }
+    private void NinjaMessage(int remainder, int level)
+    {
+        _remaining = remainder;
+        _ninjaLevel = level;
+        int next = level + 1;
+
+        string string1 = $"!!! You are a Ninja Goal Warrior Level {_ninjaLevel} !!!";
+        string string2 = $"*** You have {_remaining} points left until you are Ninja Goal Warrior Level {next} ***\n";
+
+        switch (_ninjaLevel)
+        {
+            case 0:
+                Console.WriteLine(string2);
+                break;
+            case 1:
+                Console.WriteLine(string1);
+                Console.WriteLine(string2);
+                break;
+            case 2:
+                Console.WriteLine(string1);
+                Console.WriteLine(string2);
+                break;
+            case 3:
+                Console.WriteLine(string1);
+                Console.WriteLine(string2);
+                break;
+            default:
+                Console.WriteLine(string1);
+                break;
+        }
     }
 
     private void CreateGoal()
@@ -119,9 +184,9 @@ public class GoalManager
 
     public void SaveGoals()
     {
-        // Console.Write("What is the filename for the goal file? ");
-        // string filename = Console.ReadLine();
-        string filename = "goals.txt"; // TODO - for rapid debug
+        Console.Write("What is the filename for the goal file? ");
+        string filename = Console.ReadLine();
+        // string filename = "goals.txt"; // TODO - for rapid debug
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             outputFile.WriteLine(_score); // This is line #1 in the output file   
@@ -138,9 +203,9 @@ public class GoalManager
         // Since we are loading goals from a file, we need re-initilize the _goals list
         _goals = new List<Goal>();
 
-        // Console.Write("What is the filename for the goal file? ");
-        // string filename = Console.ReadLine();
-        string filename = "goals.txt"; // TODO - for rapid debug
+        Console.Write("What is the filename for the goal file? ");
+        string filename = Console.ReadLine();
+        // string filename = "goals.txt"; // TODO - for rapid debug
         string[] lines = System.IO.File.ReadAllLines(filename);
         
         // First line in the file is the current score - no splitting required

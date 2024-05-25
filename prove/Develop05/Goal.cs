@@ -40,7 +40,7 @@ public abstract class Goal
         return totalPoints;
     }
 
-    public void CongratsMessage(int points, int bonus)
+    protected void CongratsMessage(int points, int bonus)
     {
         Console.WriteLine($"Congratulations! You have earned {points} points!");
         if (bonus > 0)

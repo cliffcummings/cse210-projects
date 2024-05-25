@@ -1,6 +1,5 @@
-200
-SimpleGoal:aa,bb,25,False
-EternalGoal:cc,dd,50
-ChecklistGoal:ee,ff,100,2,3,500
-SimpleGoal:New Simple,Added simple goal,60,False
-EternalGoal:Another,More eternal goals,40
+850
+SimpleGoal:Give a talk,Speak in Sacrament meeting when asked,100,True
+EternalGoal:Study the scriptures,Study for at least 10 minutes,50
+ChecklistGoal:Attend the temple,Attend and perform any ordinance,50,3,3,500
+ChecklistGoal:Wake up early,Wake up by at 6am,10,0,10,1000
