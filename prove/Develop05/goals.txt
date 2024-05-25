@@ -1,0 +1,6 @@
+200
+SimpleGoal:aa,bb,25,False
+EternalGoal:cc,dd,50
+ChecklistGoal:ee,ff,100,2,3,500
+SimpleGoal:New Simple,Added simple goal,60,False
+EternalGoal:Another,More eternal goals,40
