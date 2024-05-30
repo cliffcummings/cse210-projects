@@ -20,12 +20,18 @@ public class Video
         Comment txt = new Comment(name, text);
         _comments.Add(txt);
     }
+
+    private int NumberComments ()
+    {
+        return _comments.Count();
+    }
+
     public void DisplayVideoInfo()
     {
         Console.WriteLine($"\nVideo:  {_title}.");
         Console.WriteLine($"Author: {_author}.");
         Console.WriteLine($"Length: {_length} seconds.");
-        Console.WriteLine($"*** {_comments.Count()} Comments ***");
+        Console.WriteLine($"*** {NumberComments()} Comments ***");
         foreach (Comment cmt in _comments)
         {
             Console.WriteLine($"{cmt.GetName()}: {cmt.GetComment()}");
