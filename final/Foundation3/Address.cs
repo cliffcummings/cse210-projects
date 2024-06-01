@@ -13,17 +13,6 @@ public class Address
         _stateOrProvince = state;
         _zipcode         = zipcode;
     }
-    // public bool IsUsAddress()
-    // {
-    //     if (_country == "US" | _country == "USA")
-    //     {
-    //         return true;
-    //     }
-    //     else
-    //     {
-    //         return false;
-    //     }
-    // }
 
     public string GetAddress()
     {
